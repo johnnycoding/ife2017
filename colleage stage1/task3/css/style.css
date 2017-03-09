@@ -17,9 +17,7 @@
 	float: left;
 }
 #middle {
-	margin: 20px;
-	width: auto;
-	height: auto;
+	margin: 20px 160px 20px 240px;
 }
 #right {
 	margin: 20px;
@@ -36,12 +34,8 @@
 }
 #middle {
 	padding: 20px;
-/*	margin-right: 20px;*/
-	/*height: 100%;*/
 	background-color: #fff;
 	border:1px solid #999;
-	/*clear: both;*/
-	overflow: hidden;
 }
 #right {
 	width: 118px;
