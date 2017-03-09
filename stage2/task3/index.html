@@ -40,11 +40,12 @@ function getData() {
   */
   var source = document.getElementById('source');
   var oli = source.getElementsByTagName('li');
-  var data =new Array;
+  var data = new Array;
   for (var i = 0; i < oli.length; i++) {
   	data[i] = new Array;
-  	data[i][0] = oli[i].innerHTML.substring(0,2);
-  	data[i].push(oli[i].getElementsByTagName('b')[0].innerHTML);
+  	var aqiCity = oli[i].innerHTML.split('空气质量：')[0];
+  	var aqiNum = oli[i].getElementsByTagName('b')[0].innerHTML;
+  	data[i].push(aqiCity,aqiNum);
   }
   console.log(data);
   ;
@@ -67,13 +68,9 @@ function getData() {
  */
 function sortAqiData(data) {
 	function compare(value1,value2) {
-		return value2[1] - value1[1];
+		return value1[1] - value2[1];
 	}
 	data.sort(compare);
-	// console.log(data);
-	// for (var i = 0; i < data.length; i++) {
-	// 	document.write(data[i][0]+data[i][1]);
-	// }
 	return data;
 }
 
@@ -86,11 +83,18 @@ function render(data) {
 	var reSort = document.getElementById('resort');
 	var iteams = '';
 	var zhHans = ['一','二','三','四','五','六','七'];
+	//插入节点法一；
 	for (var i = 0; i < data.length; i++) {
-		var aqiData = data[i];
-		iteams += '<li>第' + zhHans[i] + '名：' + aqiData[0] + '空气质量：<b>' + aqiData[1] + '</b></li>';
+		var myLi = document.createElement('li');
+		myLi.innerHTML = '第'+zhHans[i]+'名：'+data[i][0]+'空气质量：<b>'+data[i][1]+'</br>';
+		reSort.appendChild(myLi);
 	}
-	reSort.innerHTML = iteams;
+	// 插入节点法二；
+	// for (var i = 0; i < data.length; i++) {
+	// 	var aqiData = data[i];
+	// 	iteams += '<li>第' + zhHans[i] + '名：' + aqiData[0] + '空气质量：<b>' + aqiData[1] + '</b></li>';
+	// }
+	// reSort.innerHTML = iteams;
 }
 
 function btnHandle() {
