@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		div div{
+			height: 50px;
+			width: 50px;
+			background: red;
+			margin: 20px;
+			text-align: center;
+			line-height: 50px;
+			float: left;
+		}
+	</style>
+</head>
+<body>
+	<input id="textInsert" type="text" name="" value="6">
+	<input id="leftInsert" type="button" name="" value="左侧入">
+	<input id="rightInsert" type="button" name="" value="右侧入">
+	<input id="leftDelete" type="button" name="" value="左侧出">
+	<input id="rightDelete" type="button" name="" value="右侧出">	
+	<br>
+	<div id="items">
+	</div>
+	<script type="text/javascript">
+	var leftInsert = document.getElementById('leftInsert');
+	var rightInsert = document.getElementById('rightInsert');
+	var leftDelete = document.getElementById('leftDelete');
+	var rightDelete = document.getElementById('rightDelete');
+	leftInsert.onclick = function() {
+		var items = document.getElementById('items');
+		var textValue = document.getElementById('textInsert').value;
+		var oDiv = document.createElement('div');
+		oDiv.innerHTML = textValue;
+		items.insertBefore(oDiv,items.firstChild);
+	}
+	rightInsert.onclick = function() {
+		var items = document.getElementById('items');
+		var textValue = document.getElementById('textInsert').value;
+		var oDiv = document.createElement('div');
+		oDiv.innerHTML = textValue;
+		items.appendChild(oDiv);
+	}
+	leftDelete.onclick = function() {
+		var items = document.getElementById('items');
+		if (items.childNodes.length <= 0) {
+			alert('已经没有子节点可以删除！');
+		}else{
+			var record = items.firstChild.innerHTML;
+			items.removeChild(items.firstChild);
+			alert(record);
+		}
+	}
+	rightDelete.onclick = function() {
+		var items = document.getElementById('items');
+		if (items.childNodes.length <= 0) {
+			alert('已经没有子节点可以删除！');
+		}else{
+			var record = items.lastChild.innerHTML;
+			items.removeChild(items.lastChild);
+			alert(record);
+		}
+	}
+	</script>
+</body>
+</html>
