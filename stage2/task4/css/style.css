@@ -1,0 +1,9 @@
+div >　div{
+			height: 50px;
+			width: 50px;
+			background: red;
+			margin: 20px;
+			text-align: center;
+			line-height: 50px;
+			float: left;
+		}
