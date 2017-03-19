@@ -24,9 +24,9 @@
 	rightInsert.onclick = function() {
 		var items = document.getElementById('items');
 		var textValue = parseInt(document.getElementById('textInsert').value);
-		// 
+		// 优化了正则表达式，不用额外添加条件 && textValue >= 10 && textValue <= 100
 		var restrict = /^[1-9][0-9]|100$/;
-		if (restrict.test(textValue) && textValue >= 10 && textValue <= 100) {
+		if (restrict.test(textValue)) {
 			if (items.children.length < 10 ) {
 				var oDiv = document.createElement('div');
 				oDiv.innerHTML = textValue;
@@ -78,9 +78,10 @@
 		// 向节点添加多个子节点，并设置属性和css样式.
 			// 使用DocumentFragment进行性能优化，避免浏览器反复渲染.
 			// 使用数组方便为每一个元素设置属性和css样式.
-		for (var i = 0; i < 60; i++) {
+		for (var i = 0; i < 10; i++) {
 			oDiv[i] = document.createElement('div');
-			var randomNum = parseInt(Math.random()*100);
+			// Math.random()生成从0到1（包括0，不包括1）的随机数.
+			var randomNum = Math.floor(Math.random()*90+10);
 			oDiv[i].style.height = 100+randomNum*2+'px';
 			oDiv[i].appendChild(document.createTextNode(randomNum));
 			fragment.appendChild(oDiv[i]);
