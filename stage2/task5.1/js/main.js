@@ -1,14 +1,15 @@
-	// this is js for task4 to realize insert or delete sort
+	// this is js for task5.1 to realize insert or delete sort
 	var items = document.getElementById('items');
 	var arr = new Array;
+	// 跨浏览器的事件处理程序
 	var EventUtil = {
 		addHandler: function (element, type, handler) {
 			if (element.addEventListener) {
-				element.addEventListener(type, handler, false);
+				element.addEventListener(type, handler, false); // DOM2级事件处理程序，chrome、firefox、opera等浏览器
 			} else if (element.attachEvent) {
-				element.attachEvent('on' + type, handler);
+				element.attachEvent('on' + type, handler); // IE事件处理程序
 			} else {
-				element['on' + type] = handler;
+				element['on' + type] = handler; // DOM0级事件处理程序，为所有现代浏览器支持
 			}
 		},
 		removeHandler: function (element, type, handler) {
@@ -36,6 +37,7 @@
 	EventUtil.addHandler(randData, 'click', randNum);
 	EventUtil.addHandler(rankData, 'click', rankNum);
 
+	// 左插入按钮
 	function leftInsert() {
 		var inValue = parseInt(document.getElementById('inNum').value);
 		// js正则表达式，匹配1~100的数值，必须使用括号组，否则无法识别
@@ -55,6 +57,7 @@
 		}
 	}
 
+	// 右插入按钮
 	function rightInsert() {
 		var inValue = parseInt(document.getElementById('inNum').value);
 		var str = /^([1-9][0-9]|100)$/;
@@ -73,6 +76,7 @@
 		}
 	}
 
+	// 左删除按钮
 	function leftDelete() {
 		var itemsDiv = items.getElementsByTagName('div');
 		if (itemsDiv.length <=0) {
@@ -86,6 +90,7 @@
 		}
 	}
 
+	// 右删除按钮
 	function rightDelete() {
 		var itemsDiv = items.getElementsByTagName('div');
 		if (itemsDiv.length <=0) {
@@ -99,6 +104,7 @@
 		}
 	}
 
+	// 随机插入按钮
 	function randNum() {
 		var fragment = document.createDocumentFragment();
 		var itemsChild = items.children;
@@ -116,14 +122,15 @@
 		}
 		items.appendChild(fragment);
 	}
-
+	
+	// 排序按钮
 	function rankNum() {
 		var i = 0,
 			j = 0,
 			itemsDiv = items.getElementsByTagName('div');
 		time = setInterval(animate,15);
 
-		// 借鉴了
+		// 排序可视化（动画）效果
 		function animate() {
 			if (j <　arr.length) {
 				if (i < arr.length - 1) {
