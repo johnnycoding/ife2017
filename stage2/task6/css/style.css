@@ -1,0 +1,13 @@
+#items > div {
+	/*height: 50px;*/
+	padding-left: 5px;
+	padding-right: 5px;
+	margin: 10px;
+	background-color: red;
+	color: #fff;
+	font-size: bold; 
+	float: left;
+}
+.selected {
+	color: blue;
+}
