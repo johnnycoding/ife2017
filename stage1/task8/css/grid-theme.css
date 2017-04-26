@@ -1,0 +1,75 @@
+.grid-container {
+	width: 100%;
+	max-width: 1200px;
+}
+.grid-container *{
+	box-sizing: border-box;
+}
+.row:before,
+.row:after {
+	content:"";
+	display: table;
+	clear: both;
+}
+[class*='col-'] {
+	float: left;
+	min-height: 1px;
+	width: 16.66%;
+	padding: 12px;
+	background-color: $ffdcdc;
+}
+.col-1 {
+	width: 16.66%;
+}
+.col-2 {
+	width: 33.33%;
+}
+.col-3 {
+	width: 50%;
+}
+.col-4 {
+	width: 66.664%;
+}
+.col-5 {
+	width: 83.33%;
+}
+.col-6 {
+	width: 100%;
+}
+/*表示outline和outline的所有子元素*/
+.outline, .outline *{
+	outline: 1px solid #f6a1a1;
+}
+[class*='col-'] > p {
+	background-color: #ffc2c2;
+	padding: 0;
+	margin: 0;
+	text-align: center;
+	color: white;
+}
+@media all and (max-width: 800px){
+	.col-1{width: 33.33%;}
+	.col-2{width: 50%;}
+	.col-3{width: 83.33%;}
+	.col-4{width: 100%;}
+	.col-5{width: 100%;}
+	.col-6{width: 100%;}
+
+	/*使得所有行中的最后一列在小于800px时，都整行*/
+	/*使最后一列.col-2占据整行*/
+	.row .col-2:last-of-type{
+		width:100%;
+	}
+	/*使.col-5之后的.col-1占据整行*/
+	.row .col-5 ~ .col-1{
+		width: 100%;
+	}
+}
+@media all and (max-width: 650px) {
+	.col-1{width: 50%;}
+	.col-2{width: 100%;}
+	.col-3{width: 100%;}
+	.col-4{width: 100%;}
+	.col-5{width: 100%;}
+	.col-6{width: 100%;}
+}
