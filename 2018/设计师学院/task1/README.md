@@ -121,11 +121,11 @@ a:hover::after {
 
 任务中有提到可以自己修改贝塞尔曲线，让动效更贴近自然。
 
-我由于主要是做开发，对于动效、设计这些没有经验。哪种效果更自然，我实在看不出来。
+我由于主要是做开发，对于动效、设计这些没有经验。哪种效果更自然，我实在看不出来。
 
 不过，学习了一下贝塞尔曲线，我还是把我的理解贴出来。
 
-这部分内容主要参考了《CSS3 揭秘》第八章：缓动动画。
+这部分内容主要参考了《CSS3 揭秘》第八章：缓动动画。
 
 transition 属性其实是 transition-property, transition-duration, transition-timing-function, 和 transition-delay 的简写形式。
 
@@ -133,7 +133,7 @@ transition 属性其实是 transition-property, transition-duration, transition-
 
 其实上面我们实现的过渡效果真的是均速吗？其实 transition-timing-function 的默认值的过渡效果是 ease，是先快后慢的。
 
-除此以外，transition 还内置了 ease-in（先慢后快）、ease-out（先快后慢）、ease-in-out（慢、快、慢）、linear（匀速）等值。
+除此以外，transition 还内置了 ease-in（先慢后快）、ease-out（先快后慢）、ease-in-out（慢、快、慢）、linear（匀速）等值。
 
 通过使用 cubic-bezier，我们可以自定义 transition 过渡的变化速度。
 
