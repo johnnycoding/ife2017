@@ -46,4 +46,3 @@ transition 与 animation 都可以实现一些动画过渡效果。不过 transi
 ### 实现下方的线条
 
 我们暂时先不考虑动画效果，先把线条做出来，可能我们会考虑使用 直接使用元素的 border 属性来制作线条，但是 border 属性只能设置 border-width，因为 border 的长度、宽度受元素的长宽影响。
-
