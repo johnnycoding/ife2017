@@ -140,13 +140,3 @@ transition 属性其实是 transition-property, transition-duration, transition-
 语法：cubic-bezier(x1, y1, x2, y2)。
 
 其中(x1, y1) 表示第一个控制锚点的坐标，而(x2, y2)是第二个。曲线片段的两个端点分别固定在 (0, 0) 和 (1, 1)。前者是整个过渡的起点（时间进度为零，动画进度为零），后者是终点（时间进度为100%，动画进度为100%）。
-
-## 添加一个按钮用于切换动效
-
-这里简略说一下我的思路，就不着重细讲了。
-
-1. 我会写一个名为 active 的 class。将点击切换按钮后产生的过渡效果样式放在 .active 中。
-
-2. 注册点击事件 `addEventListener('click', 'function(){...}')`。
-
-3. 通过 HTML5 DOM API classList 的 toggle 方法来切换 .active。在以往，我们通常需要增加一个 if 语句来对元素的 class 进行判断，然后再进行添加或者删除。
