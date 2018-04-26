@@ -62,3 +62,19 @@ a::after {
 ```
 
 那么如果要鼠标移动上去再展现，就需要使用 `:hover` 伪类。鼠标没有移入之前，线条是隐藏的，所以 `width:0`，当鼠标移入后线条展现，所以 `width:100%`。
+
+```css
+a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 100%;
+    width: 0;
+    height: 4px;
+    background-color: #3466d6;
+}
+
+a:hover::after {
+    width: 100%;
+}
+```
