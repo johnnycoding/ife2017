@@ -3,6 +3,8 @@
 一个有交互动画的按钮、表单会更显元气，让使用者让人眼前一亮，用户体验 UP，UP！
 一个富有生机、创造的交互动画也会让开发者编码时也更有成就感，不显得枯燥。
 
+参考 百度的 开源产品官网 (ECharts)[http://echarts.baidu.com/]
+
 我们有什么理由不做呢？
 
 ## 了解 transition
@@ -40,7 +42,6 @@ transition:background-color 0.5s linear; /* 注意浏览器兼容性 */
 transition 与 animation 都可以实现一些动画过渡效果。不过 transition 更为简单易用，强调过渡效果，可以实现一些简单的过渡动画。如果需要更复杂的效果，则可以使用 animation。
 
 ## 编写菜单动画效果
-
 我因为算是一个初学者，很难做到看一遍需求就把整个功能完完整整的做出来。所以在考虑一个需求怎么实现之前，我往往会先进行拆分，做这一个任务时，我想先忽略可能涉及 JavaScript 代码的切换效果，转而直接先实现不依赖 JavaScript 的鼠标移入产生效果，这样一拆分，任务就简明许多。
 
 ### 实现下方的线条
@@ -79,7 +80,7 @@ a:hover::after {
 }
 ```
 
-发现什么没有，其实这已经算是一个粗糙的动画了，第一个节点是 width:0，第二个节点是 width:100%。不过这个动画表现得非常不自然，所以我们需要使用 transition 过渡。
+发现什么没有，其实这已经算是一个粗糙的动画了，第一个节点是 `width:0`，第二个节点是 `width:100%`。不过这个动画表现得非常不自然，所以我们需要使用 transition 过渡。
 
 ```css
 a::after {
@@ -127,11 +128,11 @@ a:hover::after {
 
 这部分内容主要参考了《CSS3 揭秘》第八章：缓动动画。
 
-transition 属性其实是 transition-property, transition-duration, transition-timing-function, 和 transition-delay 的简写形式。
+`transition` 属性其实是 `transition-property`, `transition-duration`, `transition-timing-function`, 和 `transition-delay` 的简写形式。
 
-在这些属性中，transition-timing-function 就是用于计算变化速度的。
+在这些属性中，`transition-timing-function` 就是用于计算变化速度的。
 
-其实上面我们实现的过渡效果真的是均速吗？其实 transition-timing-function 的默认值的过渡效果是 ease，是先快后慢的。
+其实上面我们实现的过渡效果真的是均速吗？其实 `transition-timing-function` 的默认值的过渡效果是 ease，是先快后慢的。
 
 除此以外，transition 还内置了 ease-in（先慢后快）、ease-out（先快后慢）、ease-in-out（慢、快、慢）、linear（匀速）等值。
 
