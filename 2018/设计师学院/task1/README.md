@@ -131,7 +131,7 @@ transition 属性其实是 transition-property, transition-duration, transition-
 
 在这些属性中，transition-timing-function 就是用于计算变化速度的。
 
-其实上面我们实现的过渡效果真的是均速吗？其实 transition-timing-function 的默认值的过渡效果是 ease，是先快后慢的。
+其实上面我们实现的过渡效果真的是均速吗？其实 transition-timing-function 的默认值的过渡效果是 ease，是先快后慢的。
 
 除此以外，transition 还内置了 ease-in（先慢后快）、ease-out（先快后慢）、ease-in-out（慢、快、慢）、linear（匀速）等值。
 
