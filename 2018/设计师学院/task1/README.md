@@ -94,9 +94,9 @@ a::after {
 }
 ```
 
-是不是与视频 demo 中的展现方式是不一样的。demo 要求线条实现从中间向两边扩展的过渡效果，而我们所实现的是线条的过渡动画从左到右的效果。
+是不是与视频 demo 中的展现方式是不一样的。demo 要求线条实现从中间向两边扩展的过渡效果，而我们所实现的是线条的过渡动画从左到右的效果。
 
-### 实现从中间到两边的动效
+### 实现从中间到两边的动效
 
 我们思考一下，如果线条要从中间开始扩展，那么在鼠标没有 hover 之前，`::after` 就需要先设置在中间，即 `left: 50%`，当鼠标移入时，`left: 0` 和 `width: 100%` 就可以使线条完整展现
 
@@ -133,7 +133,7 @@ transition 属性其实是 transition-property, transition-duration, transition-
 
 其实上面我们实现的过渡效果真的是均速吗？其实 transition-timing-function 的默认值的过渡效果是 ease，是先快后慢的。
 
-除此以外，transition 还内置了 ease-in（先慢后快）、ease-out（先快后慢）、ease-in-out（慢、快、慢）、linear（匀速）等值。
+除此以外，transition 还内置了 ease-in（先慢后快）、ease-out（先快后慢）、ease-in-out（慢、快、慢）、linear（匀速）等值。
 
 通过使用 cubic-bezier，我们可以自定义 transition 过渡的变化速度。
 
