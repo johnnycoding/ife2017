@@ -137,4 +137,4 @@ transition 属性其实是 transition-property, transition-duration, transition-
 
 通过使用 cubic-bezier，我们可以自定义 transition 过渡的变化速度。
 
-语法：cubic-bezier(x1, y1, x2, y2)。
+语法：cubic-bezier(x1, y1, x2, y2)。
