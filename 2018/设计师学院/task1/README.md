@@ -48,3 +48,17 @@ transition 与 animation 都可以实现一些动画过渡效果。不过 transi
 我们暂时先不考虑动画效果，先把线条做出来，可能我们会考虑使用 直接使用元素的 border 属性来制作线条，但是 border 属性只能设置 border-width，因为 border 的长度、宽度受元素的长宽影响。
 
 如果一个元素不行，那往往我们会需要再加一个元素。不过对于这种装饰性样式，为了不破坏文档结构，使用 `::before`、`:after` 伪元素是一种更为优雅的方法。
+
+```css
+a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 100%;
+    width: 100%;
+    height: 4px;
+    background-color: #3466d6;
+}
+```
+
+那么如果要鼠标移动上去再展现，就需要使用 `:hover` 伪类。鼠标没有移入之前，线条是隐藏的，所以 `width: 0`，当鼠标移入后线条展现，所以 `width:100%`。
