@@ -79,4 +79,74 @@ a:hover::after {
 }
 ```
 
-发现什么没有，其实已经算是一个粗糙的动画了，第一个节点是 width:0，第二个节点是 width:100%。不过这个动画表现得非常不自然，所以我们需要使用 transition 过渡。
+发现什么没有，其实这已经算是一个粗糙的动画了，第一个节点是 width:0，第二个节点是 width:100%。不过这个动画表现得非常不自然，所以我们需要使用 transition 过渡。
+
+```css
+a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 100%;
+    width: 0;
+    height: 4px;
+    background-color: #3466d6;
+    transition: all 0.8s; /* 使用 transition 加上动画过渡 */
+}
+```
+
+是不是与视频 demo 中的展现方式是不一样的。demo 中是要求线条从中间向两边扩展，而我们所实现的是从最左边到最右边。
+
+### 实现从中间到两边的动效
+
+我们思考一下，如果线条要从中间开始扩展，那么在鼠标没有 hover 之前，`::after` 就需要先设置在中间，即 `left: 50%`，当鼠标移入时，`left: 0` 和 `width: 100%` 就可以使线条完整展现
+
+```css
+a::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 100%;
+    background-color: #3466d6;
+    width: 0;
+    height: 4px;
+    transition: all 0.8s;
+}
+a:hover::after {
+    width: 100%;
+    left: 0%;
+}
+```
+
+### 贝塞尔曲线
+
+任务中有提到可以自己修改贝塞尔曲线，让动效更贴近自然。
+
+我由于主要是做开发，对于动效、设计这些没有经验。哪种效果更自然，我实在看不出来。
+
+不过，学习了一下贝塞尔曲线，我还是把我的理解贴出来。
+
+这部分内容主要参考了《CSS3 揭秘》第八章：缓动动画。
+
+transition 属性其实是 transition-property, transition-duration, transition-timing-function, 和 transition-delay 的简写形式。
+
+在这些属性中，transition-timing-function 就是用于计算变化速度的。
+
+其实上面我们实现的过渡效果真的是均速吗？其实 transition-timing-function 的默认值的过渡效果是 ease，是先快后慢的。
+
+除此以外，transition 还内置了 ease-in（先慢后快）、ease-out（先快后慢）、ease-in-out（慢、快、慢）、linear（匀速）等值。
+
+通过使用 cubic-bezier，我们可以自定义 transition 过渡的变化速度。
+
+语法：cubic-bezier(x1, y1, x2, y2)。
+
+其中(x1, y1) 表示第一个控制锚点的坐标，而(x2, y2)是第二个。曲线片段的两个端点分别固定在 (0, 0) 和 (1, 1)。前者是整个过渡的起点（时间进度为零，动画进度为零），后者是终点（时间进度为100%，动画进度为100%）。
+
+## 添加一个按钮用于切换动效
+
+这里简略说一下我的思路，就不着重细讲了。
+
+1. 我会写一个名为 active 的 class。将点击切换按钮后产生的过渡效果样式放在 .active 中。
+
+2. 注册点击事件 `addEventListener('click', 'function(){...}')`。
+
+3. 通过 HTML5 DOM API classList 的 toggle 方法来切换 .active。在以往，我们通常需要增加一个 if 语句来对元素的 class 进行判断，然后再进行添加或者删除。
