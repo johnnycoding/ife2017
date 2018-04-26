@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        /* 重置样式 */
+        body {
+            margin: 0;
+        }
+
+        a {
+            color: #222;
+            text-decoration: none;
+        }
+
+        .wrap {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        a {
+            line-height: 40px;
+            color: #222;
+            position: relative;
+            display: block;
+        }
+
+        a::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 100%;
+            background-color: #3466d6;
+            width: 0;
+            height: 4px;
+            transition: all 0.8s cubic-bezier(.82, .14, .34, .93);
+        }
+
+        a.active {
+            color: #3466d6;
+        }
+
+        a.active::after {
+            width: 100%;
+            left: 0%;
+        }
+
+        .switch-btn {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <a id="text" href="">前端学院</a>
+        <button id="switchBtn" class="switch-btn">切换样式</button>
+    </div>
+    
+    <script>
+        var textElm = document.getElementById('text');
+        var switchBtnElm = document.getElementById('switchBtn');
+        // 点击事件
+        switchBtnElm.addEventListener('click', function () {
+            // 判断
+            textElm.classList.toggle('active');
+        });
+    </script>
+</body>
+</html>
