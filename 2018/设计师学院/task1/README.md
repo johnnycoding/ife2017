@@ -138,5 +138,3 @@ transition 属性其实是 transition-property, transition-duration, transition-
 通过使用 cubic-bezier，我们可以自定义 transition 过渡的变化速度。
 
 语法：cubic-bezier(x1, y1, x2, y2)。
-
-其中(x1, y1) 表示第一个控制锚点的坐标，而(x2, y2)是第二个。曲线片段的两个端点分别固定在 (0, 0) 和 (1, 1)。前者是整个过渡的起点（时间进度为零，动画进度为零），后者是终点（时间进度为100%，动画进度为100%）。
