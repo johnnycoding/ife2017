@@ -1,0 +1,50 @@
+/* 重置样式 */
+body {
+    margin: 0;
+}
+
+a {
+    color: #222;
+    text-decoration: none;
+}
+
+.wrap {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+a {
+    line-height: 40px;
+    color: #222;
+    position: relative;
+    display: block;
+}
+
+a::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 100%;
+    background-color: #3466d6;
+    width: 0;
+    height: 4px;
+    -webkit-transition: all 0.8s cubic-bezier(.82, .14, .34, .93);
+    transition: all 0.8s cubic-bezier(.82, .14, .34, .93);
+}
+
+a.active {
+    color: #3466d6;
+}
+
+a.active::after {
+    width: 100%;
+    left: 0%;
+}
+
+.switch-btn {
+    margin-top: 20px;
+}
