@@ -1,0 +1,27 @@
+/* custom style */
+
+.title {
+    width: 200px;
+    height: 1000px;
+    padding-top: 60px;
+    float: left;
+    font-size: 32px;
+    font-weight: bold;
+    text-align: center;
+    color: #fff;
+    background-color: #69a6fa;
+}
+
+.content {
+    float: left;
+    margin-top: 40px;
+    margin-left: 40px;
+}
+
+.tag {
+    font-weight: bold;
+}
+
+.content p {
+    font-size: 18px;
+}
